@@ -1,0 +1,60 @@
+﻿<mah:MetroWindow x:Class="kalum2020_v1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"                        
+        xmlns:local="clr-namespace:kalum2020_v1"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Kalum 2,020" Height="600" Width="900" WindowStartupLocation="CenterScreen" Icon="{Binding imgSystem}">
+    <Grid>
+        <Menu>
+            <MenuItem Header="Usuarios">
+                <MenuItem Header="Login" Command="{Binding Instancia}" CommandParameter="Login">
+                    <MenuItem.Icon>
+                            <Image Source="{Binding imgLogin}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>                
+            </MenuItem>
+            <MenuItem Header="Mantenimientos">
+                <MenuItem Header="Alumnos" Command="{Binding Instancia}" CommandParameter="Alumnos">
+                    <MenuItem.Icon>
+                            <Image Source="{Binding imgAlumnos}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>                
+                <MenuItem Header="Carreras Tecnicas" Command="{Binding Instancia}" CommandParameter="CarrerasTenicas">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgCarrerasTecnicas}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Horarios" Command="{Binding Instancia}" CommandParameter="Horarios">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgHorarios}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Instructores" Command="{Binding Instancia}" CommandParameter="Instructores">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgInstructores}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Religiones" Command="{Binding Instancia}" CommandParameter="Religiones">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgReligiones}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Salones" Command="{Binding Instancia}" CommandParameter="Salones">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgSalones}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Salir" Command="{Binding Instancia}" CommandParameter="Salir">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgSalir}"/>
+                    </MenuItem.Icon>
+                </MenuItem>                
+            </MenuItem>
+        </Menu>
+    </Grid>
+</mah:MetroWindow>

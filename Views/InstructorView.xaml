@@ -1,0 +1,91 @@
+<mah:MetroWindow x:Class="kalum2020_v1.Views.InstructorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"    
+        xmlns:local="clr-namespace:kalum2020_v1" 
+        mc:Ignorable="d"
+        Title="Instructores" Height="600" Width="900" WindowStartupLocation="CenterScreen" Icon="{Binding imgSystem}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Apellidos"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementoSeleccionado.Apellidos}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Nombres"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementoSeleccionado.Nombres}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Direccion"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementoSeleccionado.Direccion}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Teléfono"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementoSeleccionado.Telefono}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Estatus"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ElementoSeleccionado.Estatus}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Foto"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ElementoSeleccionado.Foto}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2">
+                <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Nuevo" ToolTip="Nuevo"
+                IsEnabled="{Binding EnabledModify}">
+                    <DockPanel>
+                        <Image Source="{Binding imgNew}"/>
+                    </DockPanel>
+                </Button>    
+                <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Modificar" ToolTip="Modificar"
+                IsEnabled="{Binding EnabledModify}">
+                    <DockPanel>
+                        <Image Source="{Binding imgEdit}"/>
+                    </DockPanel>
+                </Button>    
+                <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Eliminar" ToolTip="Eliminar"
+                IsEnabled="{Binding EnabledModify}">
+                    <DockPanel>
+                        <Image Source="{Binding imgDelete}"/>
+                    </DockPanel>
+                </Button>    
+                <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Guardar" ToolTip="Guardar"
+                IsEnabled="{Binding EnabledSaved}">
+                    <DockPanel>
+                        <Image Source="{Binding imgSave}"/>
+                    </DockPanel>
+                </Button>    
+                <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Cancelar" ToolTip="Cancelar"
+                IsEnabled="{Binding EnabledSaved}">
+                    <DockPanel>
+                        <Image Source="{Binding imgCancel}"/>
+                    </DockPanel>
+                </Button>    
+        </StackPanel>
+        <DataGrid SelectedItem="{Binding ElementoSeleccionado}" Grid.Row = "7" Grid.ColumnSpan="2"
+        ItemsSource = "{Binding ListaInstructor}" CanUserAddRows="False" ColumnWidth="*" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="SELECCIONAR"
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"/>
+                <DataGridTextColumn Binding="{Binding Apellidos}" Header="Apellidos" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Nombres}" Header="Nombres" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Estatus}" Header="Estatus" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</mah:MetroWindow>
