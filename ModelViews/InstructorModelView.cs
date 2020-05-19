@@ -316,6 +316,16 @@ namespace kalum2020_v1.ModelViews
                     hayError = true;
                 }
             }           
+            // Comentario
+            if (hayError == false)
+            {
+                if ((this.ElementoSeleccionado.Comentario == null) ||(this.ElementoSeleccionado.Comentario.Equals("")))
+                {
+                    respuesta = "ERR008.- Debe ingresar Comentario para Instructor...";
+                    hayError = true;
+                }
+            }           
+
            return respuesta;
         }
         public void SaveDataChange()
@@ -331,6 +341,7 @@ namespace kalum2020_v1.ModelViews
                 _ElementNotChanged.Telefono = ElementoSeleccionado.Telefono;
                 _ElementNotChanged.Estatus = ElementoSeleccionado.Estatus;
                 _ElementNotChanged.Foto = ElementoSeleccionado.Foto;
+                _ElementNotChanged.Comentario = ElementoSeleccionado.Comentario;
             }
             else if (ElementoSeleccionado == null)
             {

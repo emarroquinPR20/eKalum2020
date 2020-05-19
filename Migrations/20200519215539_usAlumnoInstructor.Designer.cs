@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kalum2020_v1.DataContext;
 
 namespace kalum2020_v1.Migrations
 {
     [DbContext(typeof(KalumDbContext))]
-    partial class KalumDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200519215539_usAlumnoInstructor")]
+    partial class usAlumnoInstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,21 +209,6 @@ namespace kalum2020_v1.Migrations
                     b.ToTable("Religiones");
                 });
 
-            modelBuilder.Entity("kalum2020_v1.Model.Rol", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RolesApp");
-                });
-
             modelBuilder.Entity("kalum2020_v1.Model.Salon", b =>
                 {
                     b.Property<int>("SalonId")
@@ -241,49 +228,6 @@ namespace kalum2020_v1.Migrations
                     b.HasKey("SalonId");
 
                     b.ToTable("Salones");
-                });
-
-            modelBuilder.Entity("kalum2020_v1.Model.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Apellidos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Enable")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Nombres")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UsuariosApp");
-                });
-
-            modelBuilder.Entity("kalum2020_v1.Model.UsuarioRol", b =>
-                {
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UsuarioId", "RoleId");
-
-                    b.ToTable("UsuariosRoles");
                 });
 
             modelBuilder.Entity("kalum2020_v1.Model.Alumno", b =>

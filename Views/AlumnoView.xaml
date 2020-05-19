@@ -8,9 +8,10 @@
         Dialog:DialogParticipation.Register="{Binding}"    
         xmlns:local="clr-namespace:kalum2020_v1" 
         mc:Ignorable="d"
-        Title="Carreras Tecnicas" Height="600" Width="900" WindowStartupLocation="CenterScreen" Icon="{Binding imgSystem}">
+        Title="Alumnos" Height="600" Width="900" WindowStartupLocation="CenterScreen" Icon="{Binding imgSystem}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height = "30"/>
             <RowDefinition Height = "30"/>
             <RowDefinition Height = "30"/>
             <RowDefinition Height = "30"/>
@@ -26,19 +27,22 @@
         <Label Grid.Row = "0" Grid.Column = "0" Content="Carne"/>
         <TextBox Grid.Row = "0" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.Carne}"
         IsReadOnly="{Binding EnabledKeys}"/>
-        <Label Grid.Row = "1" Grid.Column = "0" Content="Apellidos"/>
-        <TextBox Grid.Row = "1" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.Apellidos}"
+        <Label Grid.Row = "1" Grid.Column = "0" Content="No. Expediente"/>
+        <TextBox Grid.Row = "1" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.NumeroExpediente}"
         IsReadOnly="{Binding EnabledModify}"/>
-        <Label Grid.Row = "2" Grid.Column = "0" Content="Nombres"/>
-        <TextBox Grid.Row = "2" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.Nombres}"
+        <Label Grid.Row = "2" Grid.Column = "0" Content="Apellidos"/>
+        <TextBox Grid.Row = "2" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.Apellidos}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <Label Grid.Row = "3" Grid.Column = "0" Content="Nombres"/>
+        <TextBox Grid.Row = "3" Grid.Column = "1" Text = "{Binding ElementoSeleccionado.Nombres}"
         IsReadOnly="{Binding EnabledModify}"/> 
-        <Label Grid.Row = "3" Grid.Column = "0" Content="Fecha Nacimiento"/>
-        <DatePicker Grid.Row = "3" Grid.Column = "1" SelectedDate="{Binding ElementoSeleccionado.FechaNacimiento}"
+        <Label Grid.Row = "4" Grid.Column = "0" Content="Fecha Nacimiento"/>
+        <DatePicker Grid.Row = "4" Grid.Column = "1" SelectedDate="{Binding ElementoSeleccionado.FechaNacimiento}"
         IsEnabled="{Binding EnabledSaved}"/>
-        <Label Grid.Row = "4" Grid.Column = "0" Content="Fecha Religion"/>
-        <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource = "{Binding LstReligion}" SelectedValue="{Binding ElementoSeleccionado.Religion}"
+        <Label Grid.Row = "5" Grid.Column = "0" Content="Religion"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource = "{Binding LstReligion}" SelectedValue="{Binding ElementoSeleccionado.Religion}"
         IsEnabled="{Binding EnabledSaved}"/> 
-        <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2">
+        <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2">
                 <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Nuevo" ToolTip="Nuevo"
                 IsEnabled="{Binding EnabledModify}">
                     <DockPanel>
@@ -70,7 +74,7 @@
                     </DockPanel>
                 </Button>    
         </StackPanel>
-        <DataGrid SelectedItem ="{Binding ElementoSeleccionado}" Grid.Row = "6" Grid.ColumnSpan="2"
+        <DataGrid SelectedItem ="{Binding ElementoSeleccionado}" Grid.Row = "7" Grid.ColumnSpan="2"
         ItemsSource = "{Binding ListaAlumno}" CanUserAddRows="False" ColumnWidth="*" AutoGenerateColumns="False">           
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
@@ -79,6 +83,7 @@
                                         Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"/>
 
                 <DataGridTextColumn Binding="{Binding Carne}" Header="Carne" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NumeroExpediente}" Header="Expediente" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Apellidos}" Header="Apellidos" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Nombres}" Header="Nombres" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding FechaNacimiento}" Header="Fecha Nacimiento" IsReadOnly="True"/>

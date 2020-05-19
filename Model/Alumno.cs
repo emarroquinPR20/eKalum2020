@@ -7,6 +7,7 @@ namespace kalum2020_v1.Model
     {
         public int AlumnoId { get; set; }
         public int Carne { get; set; }
+        public string NumeroExpediente { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public DateTime FechaNacimiento  { get; set; }

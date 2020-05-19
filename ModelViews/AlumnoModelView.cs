@@ -320,12 +320,22 @@ namespace kalum2020_v1.ModelViews
                     }
                 }
             }
+            // Numero de Expediente
+            if (hayError == false)
+            {
+                if ((this.ElementoSeleccionado.NumeroExpediente == null) || (this.ElementoSeleccionado.NumeroExpediente.Equals("")))
+                {
+                    respuesta = "ERR003.- Debe ingresar Número de Expediente del Alumno...";
+                    hayError = true;
+
+                }
+            }
             // Apellidos
             if (hayError == false)
             {
                 if ((this.ElementoSeleccionado.Apellidos == null) || (this.ElementoSeleccionado.Apellidos.Equals("")))
                 {
-                    respuesta = "ERR003.- Debe ingresar Apellido(s) del Alumno...";
+                    respuesta = "ERR004.- Debe ingresar Apellido(s) del Alumno...";
                     hayError = true;
 
                 }
@@ -335,7 +345,7 @@ namespace kalum2020_v1.ModelViews
             {
                 if ((this.ElementoSeleccionado.Nombres == null) || (this.ElementoSeleccionado.Nombres.Equals("")))
                 {
-                    respuesta = "ERR004.- Debe ingresar Nombre(s) del Alumno...";
+                    respuesta = "ERR005.- Debe ingresar Nombre(s) del Alumno...";
                     hayError = true;
                 }
             }
@@ -344,7 +354,7 @@ namespace kalum2020_v1.ModelViews
             {
                 if (this.ElementoSeleccionado.FechaNacimiento == null)
                 {
-                    respuesta = "ERR005.- Debe ingresar Fecha de Nacimiento del Alumno...";
+                    respuesta = "ERR006.- Debe ingresar Fecha de Nacimiento del Alumno...";
                     hayError = true;
                 }
             }
@@ -353,7 +363,7 @@ namespace kalum2020_v1.ModelViews
             {
                 if (this.ElementoSeleccionado.Religion == null)
                 {
-                    respuesta = "ERR006.- Debe ingresar Religión del Alumno...";
+                    respuesta = "ERR007.- Debe ingresar Religión del Alumno...";
                     hayError = true;
                 }
             }
@@ -367,6 +377,7 @@ namespace kalum2020_v1.ModelViews
                 _IndexElementNotChange = ListaAlumno.IndexOf(ElementoSeleccionado);
                 _ElementNotChanged.AlumnoId = ElementoSeleccionado.AlumnoId;
                 _ElementNotChanged.Carne = ElementoSeleccionado.Carne;
+                _ElementNotChanged.NumeroExpediente = ElementoSeleccionado.NumeroExpediente;
                 _ElementNotChanged.Nombres = ElementoSeleccionado.Nombres;
                 _ElementNotChanged.Apellidos = ElementoSeleccionado.Apellidos;
                 _ElementNotChanged.FechaNacimiento = ElementoSeleccionado.FechaNacimiento;

@@ -17,6 +17,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -42,7 +43,10 @@
         <Label Grid.Row="5" Grid.Column="0" Content="Foto"/>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ElementoSeleccionado.Foto}"
         IsReadOnly="{Binding EnabledModify}"/>
-        <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2">
+        <Label Grid.Row="6" Grid.Column="0" Content="Comentario"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ElementoSeleccionado.Comentario}"
+        IsReadOnly="{Binding EnabledModify}"/>
+        <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2">
                 <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Nuevo" ToolTip="Nuevo"
                 IsEnabled="{Binding EnabledModify}">
                     <DockPanel>
@@ -74,7 +78,7 @@
                     </DockPanel>
                 </Button>    
         </StackPanel>
-        <DataGrid SelectedItem="{Binding ElementoSeleccionado}" Grid.Row = "7" Grid.ColumnSpan="2"
+        <DataGrid SelectedItem="{Binding ElementoSeleccionado}" Grid.Row = "8" Grid.ColumnSpan="2"
         ItemsSource = "{Binding ListaInstructor}" CanUserAddRows="False" ColumnWidth="*" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"

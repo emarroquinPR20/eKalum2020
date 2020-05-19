@@ -11,6 +11,7 @@ namespace kalum2020_v1.Model
         public string Telefono { get; set; }
         public string Estatus { get; set; }
         public string Foto { get; set; }
+        public string Comentario { get; set; }
         public virtual List<Clase>  Clase { get; set; }
     }
 }

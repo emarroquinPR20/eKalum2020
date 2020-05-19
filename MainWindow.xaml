@@ -15,8 +15,13 @@
                 <MenuItem Header="Login" Command="{Binding Instancia}" CommandParameter="Login">
                     <MenuItem.Icon>
                             <Image Source="{Binding imgLogin}"></Image>
+                    </MenuItem.Icon>                   
+                </MenuItem>         
+                <MenuItem Header="Salir" Command="{Binding Instancia}" CommandParameter="Salir">
+                    <MenuItem.Icon>
+                        <Image Source="{Binding imgSalir}"/>
                     </MenuItem.Icon>
-                </MenuItem>                
+                </MenuItem>                 
             </MenuItem>
             <MenuItem Header="Mantenimientos">
                 <MenuItem Header="Alumnos" Command="{Binding Instancia}" CommandParameter="Alumnos">
@@ -49,11 +54,6 @@
                         <Image Source="{Binding imgSalones}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Salir" Command="{Binding Instancia}" CommandParameter="Salir">
-                    <MenuItem.Icon>
-                        <Image Source="{Binding imgSalir}"/>
-                    </MenuItem.Icon>
-                </MenuItem>                
             </MenuItem>
         </Menu>
     </Grid>
