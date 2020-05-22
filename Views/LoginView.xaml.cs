@@ -8,10 +8,12 @@ namespace kalum2020_v1.Views
     public partial class LoginView : MetroWindow
     {
         private LoginModelView _model;
+        public bool IsLoged;
         public LoginView()
         {
             InitializeComponent();
             _model = new LoginModelView();
+            this.IsLoged = _model.IsLoged;
             this.DataContext = _model;        
         }
     }

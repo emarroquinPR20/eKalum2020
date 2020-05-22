@@ -7,7 +7,34 @@ using kalum2020_v1.Views;
 namespace kalum2020_v1.ModelViews
 {
     public class MainModelView : INotifyPropertyChanged, ICommand
-    {        
+    {     
+        private bool _EnabledLogin;
+        public bool EnabledLogin
+        {
+            get
+            {
+                return _EnabledLogin;                
+            }
+            set
+            {
+                _EnabledLogin = value;
+                NotifyChanged("EnabledLogin");
+            }
+        }
+        private bool _EnabledOption;
+        public bool EnableOption
+        {
+            get
+            {
+                return _EnabledOption;
+            }
+            set
+            {
+                _EnabledOption = value;
+                NotifyChanged("EnabledOption");
+            }
+        }
+
         private string _imgSystem = $"{Environment.CurrentDirectory}\\images\\System.png";
         public string imgSystem
         { get { return _imgSystem; } set { _imgSystem = value; NotifyChanged("imgSystem"); } }
@@ -50,7 +77,8 @@ namespace kalum2020_v1.ModelViews
         }
         public MainModelView()
         {
-            this.Instancia = this;
+            EnableOptions(false);
+            this.Instancia = this;            
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
@@ -88,7 +116,10 @@ namespace kalum2020_v1.ModelViews
             }
             else if(parameter.Equals("Login"))
             {
-                new LoginView().ShowDialog();
+                LoginView _lv = new LoginView();
+                _lv.ShowDialog();
+                this.EnabledLogin = !_lv.IsLoged;
+                this.EnableOption = _lv.IsLoged;
             }
             else if(parameter.Equals("Salir"))
             {
@@ -101,6 +132,11 @@ namespace kalum2020_v1.ModelViews
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
+        }
+        public void EnableOptions(bool enabled)
+        {
+            _EnabledLogin =  !enabled;
+            _EnabledOption = enabled;
         }
     }
 }

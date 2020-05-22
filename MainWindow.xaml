@@ -12,7 +12,7 @@
     <Grid>
         <Menu>
             <MenuItem Header="Usuarios">
-                <MenuItem Header="Login" Command="{Binding Instancia}" CommandParameter="Login">
+                <MenuItem Header="Login" Command="{Binding Instancia}" CommandParameter="Login" IsEnabled="{Binding EnabledLogin}">
                     <MenuItem.Icon>
                             <Image Source="{Binding imgLogin}"></Image>
                     </MenuItem.Icon>                   
@@ -24,32 +24,32 @@
                 </MenuItem>                 
             </MenuItem>
             <MenuItem Header="Mantenimientos">
-                <MenuItem Header="Alumnos" Command="{Binding Instancia}" CommandParameter="Alumnos">
+                <MenuItem Header="Alumnos" Command="{Binding Instancia}" CommandParameter="Alumnos" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                             <Image Source="{Binding imgAlumnos}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>                
-                <MenuItem Header="Carreras Tecnicas" Command="{Binding Instancia}" CommandParameter="CarrerasTenicas">
+                <MenuItem Header="Carreras Tecnicas" Command="{Binding Instancia}" CommandParameter="CarrerasTenicas" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                         <Image Source="{Binding imgCarrerasTecnicas}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Horarios" Command="{Binding Instancia}" CommandParameter="Horarios">
+                <MenuItem Header="Horarios" Command="{Binding Instancia}" CommandParameter="Horarios" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                         <Image Source="{Binding imgHorarios}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Instructores" Command="{Binding Instancia}" CommandParameter="Instructores">
+                <MenuItem Header="Instructores" Command="{Binding Instancia}" CommandParameter="Instructores" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                         <Image Source="{Binding imgInstructores}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Religiones" Command="{Binding Instancia}" CommandParameter="Religiones">
+                <MenuItem Header="Religiones" Command="{Binding Instancia}" CommandParameter="Religiones" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                         <Image Source="{Binding imgReligiones}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Salones" Command="{Binding Instancia}" CommandParameter="Salones">
+                <MenuItem Header="Salones" Command="{Binding Instancia}" CommandParameter="Salones" IsEnabled="{Binding EnableOption}">
                     <MenuItem.Icon>
                         <Image Source="{Binding imgSalones}"/>
                     </MenuItem.Icon>

@@ -21,11 +21,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Hora Inicial"/>
-        <DatePicker  Grid.Row="0" Grid.Column="1" SelectedDate="{Binding ElementoSeleccionado.HorarioInicio, StringFormat='{}{0:dd/MM/yyyy}'}"
-        IsEnabled="{Binding EnabledSaved}"/>
+        <TextBox  Grid.Row="0" Grid.Column="1" Text="{Binding ElementoSeleccionado.HorarioInicio, StringFormat='{}{0: HH: mm: ss}'}"
+        IsReadOnly="{Binding EnabledModify}"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Hora Final"/>
-        <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ElementoSeleccionado.HorarioFinal, StringFormat='{}{0:dd/MM/yyyy}'}"
-        IsEnabled="{Binding EnabledSaved}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementoSeleccionado.HorarioFinal, StringFormat='{}{0: HH: mm: ss}'}"
+        IsReadOnly="{Binding EnabledModify}"/>
         <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">
                 <Button Margin="5" Command="{Binding Instancia}" CommandParameter="Nuevo" ToolTip="Nuevo"
                 IsEnabled="{Binding EnabledModify}">
@@ -65,8 +65,8 @@
                                         EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
                                         Header="SELECCIONAR"
                                         Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"/>
-                <DataGridTextColumn Binding="{Binding HorarioInicio, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Incio" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding HorarioFinal, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Fin" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding HorarioInicio, StringFormat='{}{0: HH: mm: ss}'}" Header="Incio" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding HorarioFinal, StringFormat='{}{0: HH: mm: ss}'}" Header="Fin" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
