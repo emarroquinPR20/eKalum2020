@@ -8,12 +8,14 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using kalum2020_v1.Model;
+using MahApps.Metro.Controls.Dialogs;
 
 
 namespace kalum2020_v1.ModelViews
 {
     public class LoginModelView : INotifyPropertyChanged, ICommand
     {
+        private IDialogCoordinator dialogCoordinator;
         private MainModelView _MainModelView;
         public MainModelView MainModelView
         {
@@ -75,8 +77,9 @@ namespace kalum2020_v1.ModelViews
                 NotifyChanged("Instancia");
             }
         }
-        public LoginModelView(MainModelView mainModelView)
+        public LoginModelView(IDialogCoordinator instance, MainModelView mainModelView)
         {           
+            this.dialogCoordinator = instance;
             this.MainModelView = mainModelView;
             this.Instancia = this;
             this._Dbcontext = new KalumDbContext();
@@ -89,7 +92,7 @@ namespace kalum2020_v1.ModelViews
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             if (parameter is Window)
             {
@@ -107,20 +110,20 @@ namespace kalum2020_v1.ModelViews
                         _Usuario = (Usuario)objeto;
                     }
                     if (_Usuario != null)
-                    {
-                        MessageBox.Show($"Bienvenido {_Usuario.Apellidos} {_Usuario.Nombres}");
+                    {                        
+                        await this.dialogCoordinator.ShowMessageAsync(this,"Kalum 2,020!!!",$"Bienvenido {_Usuario.Apellidos} {_Usuario.Nombres}...");
                         this.MainModelView.EnabledLogin = false;
                         this.MainModelView.EnableOption = true;
                         ((Window)parameter).Close();
                     }
                     else if (_Usuario == null)
-                    {
-                        MessageBox.Show("El usuario no existe");
+                    {                        
+                        await this.dialogCoordinator.ShowMessageAsync(this,"Atención!!!","El usuario no existe");
                     }
                 }
                 catch (Exception e)
-                {
-                    MessageBox.Show(e.Message,"ERROR");
+                {                    
+                    await this.dialogCoordinator.ShowMessageAsync(this,"Atención!!!",e.Message);
                 }
             }
 

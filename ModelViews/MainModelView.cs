@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using kalum2020_v1.Views;
+using Microsoft.EntityFrameworkCore;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace kalum2020_v1.ModelViews
 {
@@ -35,6 +37,9 @@ namespace kalum2020_v1.ModelViews
             }
         }
 
+        private string _imgFondo = $"{Environment.CurrentDirectory}\\images\\Fondo.jpg";
+        public string imgFondo
+        { get { return _imgFondo; } set { _imgFondo = value; NotifyChanged("imgFondo"); } }
         private string _imgSystem = $"{Environment.CurrentDirectory}\\images\\System.png";
         public string imgSystem
         { get { return _imgSystem; } set { _imgSystem = value; NotifyChanged("imgSystem"); } }

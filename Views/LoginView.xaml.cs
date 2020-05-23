@@ -12,7 +12,7 @@ namespace kalum2020_v1.Views
         public LoginView(MainModelView mainModelView)
         {
             InitializeComponent();
-            _modelView = new LoginModelView(mainModelView);
+            _modelView = new LoginModelView(DialogCoordinator.Instance, mainModelView);
             this.DataContext = _modelView;        
         }
     }
