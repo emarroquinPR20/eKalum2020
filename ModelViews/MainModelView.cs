@@ -31,7 +31,7 @@ namespace kalum2020_v1.ModelViews
             set
             {
                 _EnabledOption = value;
-                NotifyChanged("EnabledOption");
+                NotifyChanged("EnableOption");
             }
         }
 
@@ -116,10 +116,8 @@ namespace kalum2020_v1.ModelViews
             }
             else if(parameter.Equals("Login"))
             {
-                LoginView _lv = new LoginView();
-                _lv.ShowDialog();
-                this.EnabledLogin = !_lv.IsLoged;
-                this.EnableOption = _lv.IsLoged;
+                LoginView _LoginView = new LoginView(this);
+                _LoginView.ShowDialog();
             }
             else if(parameter.Equals("Salir"))
             {

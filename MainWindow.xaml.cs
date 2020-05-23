@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using kalum2020_v1.Model;
 using kalum2020_v1.ModelViews;
 using kalum2020_v1.Views;
 using MahApps.Metro.Controls;
@@ -23,7 +24,7 @@ namespace kalum2020_v1
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private MainModelView model;
+        private MainModelView model;        
         public MainWindow()
         {
             InitializeComponent();         

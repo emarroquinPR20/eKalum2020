@@ -14,17 +14,16 @@ namespace kalum2020_v1.ModelViews
 {
     public class LoginModelView : INotifyPropertyChanged, ICommand
     {
-        private bool _IsLoged;
-        public bool IsLoged
+        private MainModelView _MainModelView;
+        public MainModelView MainModelView
         {
             get
             {
-                return _IsLoged;
+                return _MainModelView;
             }
             set
             {
-                _IsLoged = value;
-                NotifyChanged("IsLoged");
+                _MainModelView = value;
             }
         }
         private string _imgSystem = $"{Environment.CurrentDirectory}\\images\\System.png";
@@ -76,9 +75,9 @@ namespace kalum2020_v1.ModelViews
                 NotifyChanged("Instancia");
             }
         }
-        public LoginModelView()
-        {       
-            this.IsLoged = false;     
+        public LoginModelView(MainModelView mainModelView)
+        {           
+            this.MainModelView = mainModelView;
             this.Instancia = this;
             this._Dbcontext = new KalumDbContext();
         }
@@ -110,7 +109,9 @@ namespace kalum2020_v1.ModelViews
                     if (_Usuario != null)
                     {
                         MessageBox.Show($"Bienvenido {_Usuario.Apellidos} {_Usuario.Nombres}");
-                        IsLoged = true;
+                        this.MainModelView.EnabledLogin = false;
+                        this.MainModelView.EnableOption = true;
+                        ((Window)parameter).Close();
                     }
                     else if (_Usuario == null)
                     {

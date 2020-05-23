@@ -1,4 +1,5 @@
 using System.Windows;
+using kalum2020_v1.Model;
 using kalum2020_v1.ModelViews;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -7,14 +8,12 @@ namespace kalum2020_v1.Views
 {    
     public partial class LoginView : MetroWindow
     {
-        private LoginModelView _model;
-        public bool IsLoged;
-        public LoginView()
+        private LoginModelView _modelView;
+        public LoginView(MainModelView mainModelView)
         {
             InitializeComponent();
-            _model = new LoginModelView();
-            this.IsLoged = _model.IsLoged;
-            this.DataContext = _model;        
+            _modelView = new LoginModelView(mainModelView);
+            this.DataContext = _modelView;        
         }
     }
 }
